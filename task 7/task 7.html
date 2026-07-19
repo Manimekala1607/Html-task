@@ -1,0 +1,45 @@
+<script>
+function paymentSuccess()
+{
+    var payment = document.querySelector('input[name="pay"]:checked');
+
+    if(payment == null)
+    {
+        alert("Please select a payment method.");
+        return;
+    }
+
+    if(payment.value == "UPI")
+    {
+        alert("UPI Payment Successful!\nThank you for shopping with us.");
+    }
+    else if(payment.value == "Credit Card")
+    {
+        alert(" Credit Card Payment Successful!\nThank you for shopping with us.");
+    }
+    else if(payment.value == "COD")
+    {
+        alert(" Cash on Delivery Selected!\nYour order has been placed successfully.\nPlease pay when your order is delivered.");
+    }
+
+    document.getElementById("payment").close();
+}
+</script>
+
+<dialog id="payment">
+
+<h2>Payment</h2>
+
+<input type="radio" name="pay" value="UPI"> UPI<br>
+<input type="radio" name="pay" value="Credit Card"> Credit Card<br>
+<input type="radio" name="pay" value="COD"> Cash on Delivery<br><br>
+
+<button onclick="paymentSuccess()">Pay Now</button>
+
+<button onclick="document.getElementById('payment').close()">Close</button>
+
+</dialog>
+
+<button onclick="document.getElementById('payment').showModal()">
+Proceed to Payment
+</button>
